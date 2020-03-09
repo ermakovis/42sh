@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 static t_pf		*init_pf(void)
 {
 	t_pf *new;
 
 	if (!(new = (t_pf*)malloc(sizeof(t_pf))))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at init_pf");
 	new->buff = NULL;
 	new->eflag = 0;
 	new->len = 0;
@@ -80,7 +80,7 @@ int				ft_dprintf(int fd, const char *format, ...)
 	int			i;
 
 	if (!(res = (t_res*)malloc(sizeof(t_res))))
-		return (-1);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_dprinf");
 	res->str = NULL;
 	res->len = 0;
 	res->bufflen = 0;
@@ -105,7 +105,7 @@ int				ft_printf(const char *format, ...)
 	int			i;
 
 	if (!(res = (t_res*)malloc(sizeof(t_res))))
-		return (-1);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_printf");
 	res->str = NULL;
 	res->len = 0;
 	res->bufflen = 0;

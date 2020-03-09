@@ -21,7 +21,7 @@ char		*ft_strmap(const char *s, char (*f)(char))
 	if (!s || !f)
 		return (NULL);
 	if (!(str = (char*)malloc(ft_strlen(s) + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strmap");
 	tmp = str;
 	while (*s)
 	{

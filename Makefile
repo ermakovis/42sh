@@ -44,7 +44,7 @@ BIN = $(addprefix $(OBJ_DIR)/, $(BIN_NAME:.c=.o))
 UT 	= $(addprefix $(OBJ_DIR)/, $(UT_NAME:.c=.o))
 SRC = $(addprefix $(OBJ_DIR)/, $(SRC_NAME:.c=.o))
 OBJ = $(SRC) $(RL) $(LX) $(PR) $(BIN) $(EXE) $(UT) 
-INC = -I ./inc -I $(LIB_DIR)/includes
+INC = -I ./inc -I $(LIB_DIR)/inc
 
 all: $(NAME)
 
@@ -52,44 +52,47 @@ $(NAME) : $(OBJ)
 	@make -s -C $(LIB_DIR)
 	@$(CC) -o $(NAME) $(SRC) $(RL) $(LX) $(PR) $(EXE) $(UT) $(BIN)\
 		$(LIB_DIR)/libft.a $(INC) -lcurses $(FLAGS)
+	@printf "\033[0m\033[35m%-40s\033[1m\033[34m%s\033[0m\n" "Compilation" "Done"
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(RL_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(LX_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(PR_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(EXE_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(UT_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 $(OBJ_DIR)/%.o: $(BIN_DIR)/%.c
 	@$(CC) -o $@ -c $< $(INC) $(FLAGS)
-	@echo "\033[0m\033[36m$(notdir $<)\033[1m\033[34m OK\033[0m"
+	@printf "\033[0m\033[36m%-40s\033[1m\033[34m%s\033[0m\n" "$(notdir $<)" "Done"
 
 clean:
-		@make clean -s -C $(LIB_DIR)
-		@rm -f $(OBJ)
+	@make clean -s -C $(LIB_DIR)
+	@rm -f $(OBJ)
+	@printf "\033[0m\033[33m%-40s\033[1m\033[34m%s\033[0m\n" "Clean" "Done"
 
 fclean: clean
-		@make fclean -s -C $(LIB_DIR)
-		@find . -type f -name ".*.swp" -exec rm -f {} \;
-		@rm -rf *test*
-		@rm -rf $(NAME)*
+	@make fclean -s -C $(LIB_DIR)
+	@find . -type f -name ".*.swp" -exec rm -f {} \;
+	@rm -rf *test*
+	@rm -rf $(NAME)*
+	@printf "\033[0m\033[33m%-40s\033[1m\033[34m%s\033[0m\n" "Full Clean" "Done"
 
 re:	fclean all
 

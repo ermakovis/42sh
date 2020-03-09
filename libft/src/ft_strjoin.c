@@ -24,7 +24,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	s1len = ft_strlen(s1);
 	s2len = ft_strlen(s2);
 	if (!(join = (char*)malloc(s1len + s2len + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strjoin");
 	ft_memcpy(join, s1, s1len);
 	ft_memcpy((join + s1len), s2, s2len);
 	*(join + s1len + s2len) = '\0';

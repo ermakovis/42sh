@@ -1,6 +1,6 @@
 NAME = libft.a
 
-INC = -I ./includes/
+INC = -I ./inc/
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -25,7 +25,7 @@ SRCS_NAME=ft_abs.c ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c \
 		 ft_lst_num.c ft_lst_sort.c ft_lstget_pos.c ft_lst_remove.c\
 		 ft_lstrev.c\
 		 ft_strclen.c ft_nbrlen.c ft_strtoupper.c ft_swap.c \
-		 ft_power.c get_next_line.c ft_strndup.c ft_max.c ft_min.c\
+		 ft_power.c ft_strndup.c ft_max.c ft_min.c\
 		 ft_printf.c ft_parse_format.c ft_print_string.c ft_print_digit.c \
 		 ft_print_unsigned_number.c ft_print_signed_number.c \
 		 ft_print_float.c ft_print_cleanup.c ft_print_wchar.c\
@@ -44,6 +44,7 @@ all: $(NAME)
 $(NAME):$(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@printf "\033[0m\033[35m%-40s\033[1m\033[34m%s\033[0m\n" "Libft" "Done"
 
 $(OBJ_PATH)%.o:$(SRCS_PATH)%.c
 	@mkdir -p obj

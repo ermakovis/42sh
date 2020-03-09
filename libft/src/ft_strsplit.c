@@ -40,8 +40,8 @@ char		**ft_strsplit(char const *s, char c)
 
 	if (!s | !*s)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * (nbwords(s, c) + 1));
-	ft_bzero(tab, sizeof(char *) * (nbwords(s, c) + 1));
+	if (!(tab = (char **)ft_memalloc(sizeof(char *) * (nbwords(s, c) + 1))))
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strsplit");
 	j = 0;
 	k = 0;
 	while (s[k])

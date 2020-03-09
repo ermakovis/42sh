@@ -22,7 +22,7 @@ char		*ft_strsub(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	i = 0;
 	if (!(sub = (char*)malloc(len + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strsub");
 	while (i < len)
 	{
 		sub[i] = s[start + i];

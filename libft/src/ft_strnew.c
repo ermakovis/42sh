@@ -23,7 +23,7 @@ char		*ft_strnew(size_t size)
 	if ((int)size < 0)
 		return (NULL);
 	if (!(p = (char*)malloc(size + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strnew");
 	p[size] = '\0';
 	while (size-- > 0)
 		p[size] = '\0';
@@ -36,7 +36,7 @@ wchar_t		*ft_wstrnew(size_t size)
 
 	p = NULL;
 	if (!(p = (wchar_t*)malloc(sizeof(wchar_t) * (size + 1))))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_wstrnew");
 	ft_bzero(p, sizeof(wchar_t) * size + 1);
 	return (p);
 }

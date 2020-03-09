@@ -17,7 +17,7 @@ char	*ft_strndup(const char *s, size_t n)
 	char	*str;
 
 	if (!(str = (char *)malloc(sizeof(char) * (n + 1))))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strndup");
 	str = ft_strncpy(str, s, n);
 	str[n] = '\0';
 	return (str);

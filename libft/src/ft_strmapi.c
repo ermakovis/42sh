@@ -22,7 +22,7 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	if (!(str = (char*)malloc(ft_strlen(s) + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strmapi");
 	while (s[i])
 	{
 		str[i] = f(i, (char)s[i]);

@@ -12,7 +12,7 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "../includes/libft.h"
+# include "../inc/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>

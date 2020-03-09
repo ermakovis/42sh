@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void			ft_printf_buffer(t_pf *pf, t_res *res, char *buff, int len)
 {

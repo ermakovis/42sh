@@ -18,7 +18,7 @@ void		*ft_memalloc(size_t size)
 	void			*tmp;
 
 	if (!(tmp = (void*)malloc(size)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_memalloc");
 	ft_memset(tmp, '\0', size);
 	return (tmp);
 }

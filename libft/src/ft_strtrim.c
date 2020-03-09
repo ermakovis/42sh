@@ -52,7 +52,7 @@ char				*ft_strtrim(const char *s)
 	if (first == ft_strlen(s))
 		return (ft_strdup(""));
 	if (!(trm = (char*)malloc(len + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strtrim");
 	tmp = trm;
 	while (len-- > 0)
 		*trm++ = *(s++ + first);

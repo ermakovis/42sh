@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <sys/stat.h>
 # include <sys/types.h>
-# include "get_next_line.h"
 
 typedef struct stat	t_stat;
 typedef struct		s_list
@@ -25,6 +24,8 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+# include <../../inc/shell.h>
 
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);

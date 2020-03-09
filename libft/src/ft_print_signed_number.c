@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "limits.h"
-#include "../includes/ft_printf.h"
+#include "../inc/ft_printf.h"
 
 void	ft_printf_itoa(long long int num, t_pf *pf)
 {

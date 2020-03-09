@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen(s1);
 	if (!(p = (char*)malloc(len + 1)))
-		return (NULL);
+		ut_cleanup(EXIT_FAILURE, "Malloc failed at ft_strdup");
 	tmp = p;
 	while (len-- > 0)
 		*tmp++ = *s1++;
