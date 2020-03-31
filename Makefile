@@ -13,7 +13,7 @@
 NAME=42sh
 
 CC=gcc
-FLAGS=-g -lreadline# -Wall -Werror -Wextra
+FLAGS=-g -lreadline #-Wall -Werror -Wextra
 
 SRC_DIR=	./src
 RL_DIR=		./src/read_line
@@ -27,7 +27,7 @@ OBJ_DIR=	./obj
 
 SRC_NAME=	main.c
 RL_NAME=	read_line.c
-LX_NAME=	lexer.c
+LX_NAME=	lexer.c lexer_find_quotes.c lexer_check_operator.c lexer_type_token.c
 PR_NAME=	parser.c
 BIN_NAME=
 EXE_NAME=	execute.c
